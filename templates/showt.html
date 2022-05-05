@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body{
+           background-color: rgb(202, 198, 198);
+       }
+       .container{
+           width:70%;
+           margin: 2rem auto;
+           
+       }
+       h1{
+           font-size: 2rem;
+           font-weight: 700;
+           color:rgb(4, 160, 43);
+           text-shadow: #fff;
+           font-family: sans-serif;
+       }
+       h2{
+           font-size: 1rem;
+           font-weight: 700;
+           color:rgb(11, 167, 11);
+           font-family: sans-serif;
+       }
+       table{
+           width: 100%;
+           border-collapse: collapse;
+       }
+       thead{
+           width: 100%;
+           text-align: left;
+       }
+       th,td{
+           border: 1px solid rgb(150, 145, 145);
+       }
+       th{
+           font-size: 15px;
+           font-weight: 500;
+           color: white;
+           background-color: rgb(26, 179, 26);
+           font-family: sans-serif;
+       }
+       td{
+           font-size: 15px;
+           font-weight: 550;
+           font-family: sans-serif;
+           color:rgb(0, 0, 0);
+       }
+      
+       tr:nth-child(even){
+           background-color: #d8d8dd;
+       }
+       tr:nth-child(odd){
+           background-color: #f3f3f7;
+       }
+       tr:hover{
+           background-color: #c4eeb4;
+           transform: scale(1.12);
+       }
+    </style>
+</head>
+<body> 
+    <div class="container"> 
+    <h1>Class Management System</h1>
+    
+    <table class="content-table">
+        <thead>
+            <tr>
+              
+                <th> ID</th>
+                <th>STUDENT NAME</th>
+                <th>DOB</th>
+                <th>GENDER</th>
+                <th>QUALIFICATION</th>
+                <th>GRADE</th>
+                <th>EMAIL</th>
+                <th>CONTACT NO</th>
+                
+        
+                <th colspan="2">ACTION..</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for products in emp %}
+        <tr>
+        <td>{{products.id}}</td>
+        <td>{{products.tutor_name}}</td>
+        <td>{{products.DOB}}</td>
+        <td>{{products.Gender}}</td>
+        <td>{{products.Qualification}}</td>
+        <td>{{products.userClass.Grade}}</td>
+        <td>{{products.email}}</td>
+        <td>{{products.contactno}}</td>
+        
+        
+        
+
+        <td><a href="{% url 'edit_t' products.id %}">Edit</a>
+            <br>
+            <a href="{% url 'delete_t' products.id %}">Delete</a>
+        </td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>    
+</body>
+</html>
